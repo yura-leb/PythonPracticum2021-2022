@@ -1,11 +1,2 @@
 a, b = eval(input())
-l = list()
-c = [i for i in range(a, b)]
-for r in c:
-    for t in range(2, r):
-        if not r % t:
-            break
-    else:
-        l.append(r)
-print(l)
-
+print([i for i in range(a,b) if all([i%j for j in range(2, i//2+1)])])
