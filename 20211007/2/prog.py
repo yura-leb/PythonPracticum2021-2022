@@ -10,3 +10,6 @@ def SUB(a, b):
             else:
                 result.append(elem)
     return type(a)(result)
+
+a, b = eval(input())
+print(SUB(a,b))
