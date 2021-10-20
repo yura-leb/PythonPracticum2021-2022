@@ -1,21 +1,21 @@
-from math import sin
-from fractions import Fraction
-
-##x = [-4,4]
-##length = x[1] - x[0]
-##part = Fraction(length) / Fraction('80')
-##start = x[0]
-##pos = start
-##while pos <= x[1]:
+from math import *
 
 def scale(A, B, a, b, x):
     return (x - A)/(B - A) * (b - a) + a
 
-f = sin
-W, H = 66, 20
-A, B = -14, 14
-X = [f(scale(0, H+1, A, B, i)) for i in range(H+1)]
+W, H, A, B, s = input().split()
+W, H, A, B = int(W), int(H), int(A), int(B)
+f = lambda x: eval(s)
+X = [scale(0, W, A, B, i) for i in range(W)]
 Y = [f(x) for x in X]
 my, My = min(Y), max(Y)
-for y in Y:
-    print(int(scale(my, My, 0, W, y))*' ' + '*')
+res_Y = [int(scale(my, My, 0, H, f(x))) for x in X]
+strings = ['' for _ in range(H)]
+for i in range(W):
+    for j in range(H):
+        if H - j - 1 == res_Y[i]:
+            strings[j] += '*'
+        else:
+            strings[j] += ' '
+for string in strings:
+    print(string)
