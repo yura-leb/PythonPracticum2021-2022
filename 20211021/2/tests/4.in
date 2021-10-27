@@ -1,0 +1,3 @@
+:sumfour a b c d a+b+c+d
+sumfour 1 2 3 4
+quit

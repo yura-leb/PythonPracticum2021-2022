@@ -1,16 +1,18 @@
 import math
 
-def f(var, fun):
-    return lambda var: eval(fun, math.__dict__, var)
-
 functions = {}
+k = 0
 while (s := input().split())[0] != 'quit':
+    k+=1
     if s[0][0] == ':':
         fun_name = s[0][1:]
-        functions[fun_name] = f(eval(s[1]), s[2])
+        fun = s[-1]
+        functions[fun_name] = (fun, s[1:-1])
     elif s[0] in functions:
-        print(functions[s[0]](eval(s[1])))
+        args = functions[s[0]][1]
+        d = dict(zip(args, map(eval, s[1:])))
+        print(eval(functions[s[0]][0], math.__dict__, d))
     else:
         print("Wrong str")
-else:
-    print(len(functions) + 1)
+
+print(f'{len(functions) + 1}:{k+1}')
