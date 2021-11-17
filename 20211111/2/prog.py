@@ -1,35 +1,33 @@
 class InvalidInput(Exception):
-    pass
+    def __str__(self):
+        return 'Invalid Input'
 
 class BadTriangle(ZeroDivisionError):
-    pass
+    def __str__(self):
+        return 'Not a triangle'
 
 def length(x1, y1, x2, y2):
     return ((x1 - x2) ** 2 + (y1 - y2)**2) ** (1/2)
 
 def triangleSquare():
+    eps = 10 ** (-6)
     while True:
         try:
-            print(1)
             (x1, y1), (x2, y2), (x3, y3) = eval(input())
             x1, y1, x2, y2, x3, y3 = map(float, (x1, y1, x2, y2, x3, y3))
-            
         except Exception:
-            print('Invalid Input')
+            print(InvalidInput())
             continue
         a = length(x1, y1, x2, y2)
         b = length(x1, y1, x3, y3)
         c = length(x2, y2, x3, y3)
         p = (a + b + c) / 2
         square = (p*(p-a)*(p-b)*(p-c)) ** (1/2)
-        try:
-            1/square
-        except:
-            print('Not a triangle')
+        if -eps < abs(square) < eps:
+            print(BadTriangle())
             continue
         else:
+            print('%.2f' % square)
             break
-    return square
 
-##import sys
-##exec(sys.stdin.read())
+triangleSquare()
