@@ -1,0 +1,10 @@
+alp = Alpha(c='asd', m=24, a='r')
+try:
+    print(alp.r)
+except AttributeError:
+    print('ok slots')
+alq = AlphaQ(c='asd', m=24, a='r')
+try:
+    print(alq.r)
+except AttributeError:
+    print('ok dict')

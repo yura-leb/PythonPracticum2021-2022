@@ -1,0 +1,11 @@
+@objcount
+class C(str):
+    pass
+
+c, d, e = C('asd'), C('fgh'), C('hjk')
+print(C.counter)
+f = C(c[0:1])
+print(C.counter)
+del c
+print(C.counter)
+

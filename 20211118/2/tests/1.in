@@ -1,0 +1,9 @@
+class C(complex):
+    num = Num()
+
+c, d = C(), C()
+c.num = 1+2j
+d.num = 2 + 4j
+print(c.num+d.num)
+c.num = (1, 2,3)
+print(c.num+d.num)

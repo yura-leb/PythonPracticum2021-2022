@@ -1,0 +1,20 @@
+class B:
+    real = 'pabam '
+
+class D:
+    real = 'pabaaaaaaaam'
+
+class F:
+    real = 'pababababam'
+    
+class C:
+    num = Num()
+
+c, d, f = C(), C(), C()
+c.num = B()
+d.num = D()
+f.num = F()
+print(c.num)
+print(c.num)
+print(c.num+c.num + c.num + c.num + str(d.num))
+print(f.num)

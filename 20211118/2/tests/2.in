@@ -1,0 +1,9 @@
+class C():
+    num = Num()
+
+c, d = C(), C()
+c.num = AttributeError
+d.num = {1 : 2, 3 : 4}
+print(d.num)
+print(c.num)
+print(c.num+d.num)

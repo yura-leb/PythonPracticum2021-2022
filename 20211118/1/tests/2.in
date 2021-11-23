@@ -1,0 +1,11 @@
+class C(str):
+    pass
+
+@objcount
+class B(C):
+    pass
+
+c, d, e = B('c'), B('d'), C('e')
+print(B.counter)
+c = 100500
+print(B.counter)
