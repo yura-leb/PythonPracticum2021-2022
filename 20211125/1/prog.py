@@ -1,12 +1,12 @@
 import sys
 
-s = sys.stdin.buffer.readline()
+s = sys.stdin.buffer.read()
 start = s[0]
 size = (len(s) - 1) // start
 if not size:
     size = 1
 lines = []
-for i in range((len(s) - 1) // size):
+for i in range((len(s) - 1) // size + 1):
     lines.append(s[1 + i * size : 1 + (i+1) * size])
 
 sorted_lines = sorted(lines)

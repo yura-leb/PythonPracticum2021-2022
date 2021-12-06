@@ -1,0 +1,10 @@
+class C(metaclass=dump):
+    def __init__(self, val, a=123, b=345):
+        self.val = val
+
+    def cheese(self, sort='parmesan'):
+        return 'cheese ' + sort
+
+c = C(10)
+print(c.cheese())
+print(c.cheese('maasdam'))
