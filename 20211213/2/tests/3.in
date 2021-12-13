@@ -1,0 +1,16 @@
+class C(metaclass=check):
+    A: int = 3
+    B: list = []
+    F: float = 1.34
+    R: str = 'qq'
+
+c = C()
+print(c.check_annotations())
+c.A = 'df'
+print(c.check_annotations())
+c.B = ()
+print(c.check_annotations())
+c.F = 'io'
+print(c.check_annotations())
+c.R = 1234
+print(c.check_annotations())

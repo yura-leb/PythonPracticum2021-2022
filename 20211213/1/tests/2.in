@@ -1,0 +1,9 @@
+class C(metaclass=dump):
+    def __init__(self, val, a=123, b=345):
+        self.val = val
+
+    def __str__(self):
+        return f"<<string>>"
+
+c = C(10)
+print(c)

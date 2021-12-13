@@ -1,0 +1,10 @@
+class C(metaclass=check):
+    A: int
+    B: list
+
+c = C()
+print(c.check_annotations())
+c.A = 34
+print(c.check_annotations())
+c.B = []
+print(c.check_annotations())
