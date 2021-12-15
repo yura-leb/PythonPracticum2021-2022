@@ -1,10 +1,1 @@
-class C(metaclass=check):
-    A: int
-    B: list = ("QQ", 2, 1)
-
-c = C()
-print(c.check_annotations())
-c.A = 34
-print(c.check_annotations())
-c.B = []
-print(c.check_annotations())
+[19, 35, 0, 10, 4, 34, 43, 7, 32, 33, 6, 13, 46, 25, 1, 20, 37, 30, 24, 9, 29, 17, 42, 47, 8, 39, 5, 38, 27, 23, 11, 41, 44, 36, 26, 14, 22, 15, 28, 3, 12, 40, 21, 16, 45, 18, 31, 2]

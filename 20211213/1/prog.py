@@ -3,8 +3,7 @@ import asyncio
 from collections import defaultdict
 import math
 
-L = list(range(16))
-random.shuffle(L)
+L = eval(input())
 LL = L.copy()
 
 async def merge(b0, b1, e1, n, event_b0_e0, event_b1_e1, event_b0_e1):
@@ -19,8 +18,7 @@ async def merge(b0, b1, e1, n, event_b0_e0, event_b1_e1, event_b0_e1):
             LL[i] = L[b1]
             b1 += 1
         i += 1
-    await asyncio.sleep(0.1)
-    print(f"> {n}")
+    await asyncio.sleep(0)
     LL[i:e1] = L[b0:e0] + L[b1:e1]
     L[b:e1] = LL[b:e1]
     event_b0_e1.set()
@@ -37,7 +35,6 @@ async def joiner():
         b = 2**(p+1)
         for i in range(0, len(L), b):
             events[(i, i+b)] = asyncio.Event()
-    print(events.keys())
     
     for p in range(4):
         b = 2**(p+1)
@@ -52,9 +49,3 @@ async def joiner():
 asyncio.run(joiner())    
 print(L)
 
-
-
-    
-
-##import sys
-##exec(sys.stdin.read())

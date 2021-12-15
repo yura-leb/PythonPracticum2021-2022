@@ -1,10 +1,1 @@
-class C(metaclass=dump):
-    def __init__(self, val, a=123, b=345):
-        self.val = val
-
-    def cheese(self, sort='parmesan'):
-        return 'cheese ' + sort
-
-c = C(10)
-print(c.cheese())
-print(c.cheese('maasdam'))
+[13, 23, 1, 19, 17, 3, 5, 21, 25, 15, 7, 9, 31, 29, 11, 27]
