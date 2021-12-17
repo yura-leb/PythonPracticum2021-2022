@@ -1,5 +1,5 @@
 import sys
-latin1 = sys.stdin.buffer.read().decode(errors='replace')
+latin1 = sys.stdin.buffer.read().decode()
 byte = latin1.encode('latin1', errors='replace')
 cp1251 = byte.decode('cp1251', errors='replace')
-print(cp1251)
+sys.stdout.buffer.write(cp1251.encode('utf-8'))

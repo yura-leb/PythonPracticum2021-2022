@@ -3,21 +3,13 @@ class Num:
         try:
             return obj._val
         except:
-            obj._val = 0
-        return obj._val
+            return 0
 
     def __set__(self, obj, value):
-        try:
-            obj._val = value.real
-            return
-        except AttributeError:
-            pass
-        try:
-            obj._val = len(value)
-            return
-        except TypeError:
-            obj._val = 0
-        return
+        if hasattr(value, 'real'):
+            obj._val = value
+        else:
+            obj._val = len(list(value))
 
     def __delete__(self,obj):
         obj._val = 0

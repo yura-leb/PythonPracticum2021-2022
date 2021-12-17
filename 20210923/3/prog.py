@@ -4,7 +4,7 @@ b = n
 while a < n + 3:
     while b < n + 3:
         digit_sum = 0
-        c = a*b
+        c = abs(a*b)
         while c != 0:
             digit_sum += c % 10
             c //= 10

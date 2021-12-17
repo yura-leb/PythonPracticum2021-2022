@@ -14,13 +14,14 @@ h = len(strings) + 2
 gas = 0
 liquid = 0
 for s in strings:
-    if s[1] == '.':
+    if s[0] == '.':
         gas += w - 2
     else:
         break
 volume = w * h - 2 * w - 2 * h + 4
 liquid = volume - gas
-
+s1 = f'{"."*round(scale(20, max(gas, liquid), gas)):<20} {gas}/{volume}'
+s2 = f'{"~"*round(scale(20, max(gas, liquid), liquid)):<20} {liquid}/{volume}'
 result = ['#' * h]
 
 if r := liquid % (h-2):
@@ -43,5 +44,5 @@ result.append('#' * h)
 for s in result:
     print(s)
 
-print(f'{"."*round(scale(20, max(gas, liquid), gas)):<20} {gas}/{volume}')
-print(f'{"~"*round(scale(20, max(gas, liquid), liquid)):<20} {liquid}/{volume}')
+print(s1)
+print(s2)

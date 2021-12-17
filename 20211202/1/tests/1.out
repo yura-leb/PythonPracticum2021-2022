@@ -1,5 +1,5 @@
-(10,) {}
-() {}
+__init__: (10,), {}
+cheese: (), {}
 cheese parmesan
-('maasdam',) {}
+cheese: ('maasdam',), {}
 cheese maasdam

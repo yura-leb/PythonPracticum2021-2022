@@ -1,13 +1,21 @@
-class B:
+class B(str):
     real = 'pabam '
+    def __str__(self):
+        return self.real
 
-class D:
+class D(str):
     real = 'pabaaaaaaaam'
 
-class F:
+    def __str__(self):
+        return self.real
+
+class F(str):
     real = 'pababababam'
+
+    def __str__(self):
+        return self.real
     
-class C:
+class C(str):
     num = Num()
 
 c, d, f = C(), C(), C()

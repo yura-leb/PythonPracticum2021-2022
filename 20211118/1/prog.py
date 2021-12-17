@@ -3,7 +3,10 @@ def objcount(cls):
         counter = 0
         def __init__(self, *args, **kwargs):
             newcls.counter += 1
-            super().__init__()
+            try:
+                super().__init__(*args, **kwargs)
+            except:
+                super().__init__()
 
         def __del__(self):
             newcls.counter -= 1

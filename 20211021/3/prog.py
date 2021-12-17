@@ -4,7 +4,12 @@ import re
 w = int(input())
 l = list()
 word = ''
-while s := input().lower():
+while True:
+    s = input()
+    if s.split() == []:
+        break
+    
+    s = s.lower();
     l += re.split(r"[\W\d]", s)
     
 ##    for char in s:
