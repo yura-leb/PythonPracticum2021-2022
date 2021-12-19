@@ -1,6 +1,6 @@
 class InvalidInput(Exception):
     def __str__(self):
-        return 'Invalid Input'
+        return 'Invalid input'
 
 class BadTriangle(ZeroDivisionError):
     def __str__(self):
@@ -14,9 +14,13 @@ def triangleSquare():
     while True:
         try:
             (x1, y1), (x2, y2), (x3, y3) = eval(input())
-            x1, y1, x2, y2, x3, y3 = map(float, (x1, y1, x2, y2, x3, y3))
         except Exception:
             print(InvalidInput())
+            continue
+        try:
+            x1, y1, x2, y2, x3, y3 = map(float, (x1, y1, x2, y2, x3, y3))
+        except Exception:
+            print(BadTriangle())
             continue
         a = length(x1, y1, x2, y2)
         b = length(x1, y1, x3, y3)
