@@ -1,5 +1,10 @@
 def Pareto(*args):
-    result = ()
+    result = []
+    if len(args) == 0:
+        return ()
+    elif len(args) == 2:
+        if type(args[0]) == int:
+            return (args,)
     for i in range(len(args)):
         for j in range(len(args)):
             if i != j:
@@ -8,7 +13,7 @@ def Pareto(*args):
                     break
         else:
             result += (args[i],)
-    return result
+    return tuple(result)
 
 print(Pareto(*eval(input())))
 

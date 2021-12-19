@@ -20,8 +20,9 @@ for s in strings:
         break
 volume = w * h - 2 * w - 2 * h + 4
 liquid = volume - gas
-s1 = f'{"."*round(scale(20, max(gas, liquid), gas)):<20} {gas}/{volume}'
-s2 = f'{"~"*round(scale(20, max(gas, liquid), liquid)):<20} {liquid}/{volume}'
+shift = max(len(str(gas)), len(str(liquid)))
+s1 = f'{"."*round(scale(20, max(gas, liquid), gas)):<20} {gas:>{shift}}/{volume}'
+s2 = f'{"~"*round(scale(20, max(gas, liquid), liquid)):<20} {liquid:>{shift}}/{volume}'
 result = ['#' * h]
 
 if r := liquid % (h-2):
