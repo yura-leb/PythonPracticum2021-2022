@@ -21,8 +21,4 @@ while True:
 ##            word = ''
     
 c = Counter([elem for elem in l if len(elem) == w])
-if c:
-    maximum = max(c.values())
-    print(*sorted([x for x in c if c[x] == maximum]))
-else:
-    print()
+print(*sorted([x for x in c if c[x] == max(c.values())]))
