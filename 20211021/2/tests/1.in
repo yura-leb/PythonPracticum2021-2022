@@ -3,4 +3,4 @@ f
 f
 f
 f
-quit
+quit "{}:{}"

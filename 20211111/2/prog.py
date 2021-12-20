@@ -10,7 +10,7 @@ def length(x1, y1, x2, y2):
     return ((x1 - x2) ** 2 + (y1 - y2)**2) ** (1/2)
 
 def triangleSquare():
-    eps = 10 ** (-6)
+    eps = 10 ** (-3)
     while True:
         try:
             (x1, y1), (x2, y2), (x3, y3) = eval(input())

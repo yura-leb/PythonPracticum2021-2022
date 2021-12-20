@@ -1,6 +1,6 @@
-import string
+from string import ascii_lowercase
 class Alpha:
-    __slots__ = list(string.ascii_lowercase)
+    __slots__ = list(ascii_lowercase)
 
     def __init__(self, **kwargs):
         for kwarg in kwargs:
@@ -18,7 +18,10 @@ class Alpha:
 class AlphaQ:
     def __init__(self, **kwargs):
         for kwarg in kwargs:
-            self.__setattr__(kwarg, kwargs[kwarg])
+            if kwarg in ascii_lowercase:
+                self.__setattr__(kwarg, kwargs[kwarg])
+            else:
+                raise AttributeError
         
     def __str__(self):
         res = ''
@@ -32,5 +35,12 @@ class AlphaQ:
         except KeyError:
             raise AttributeError
 
+    def __setattr__(self, obj, val):
+        if obj in list(ascii_lowercase):
+            super().__setattr__(obj, val)
+        else:
+            raise AttributeError
+
+    
 import sys
 exec(sys.stdin.read())

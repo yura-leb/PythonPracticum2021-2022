@@ -7,7 +7,7 @@ for i in range(3000):
 first = time() - start
 mid = time()
 alq = AlphaQ(c=10, z=2, a=42)
-for i in range(2000):
+for i in range(3000):
 	alq.e = 123
 
 
