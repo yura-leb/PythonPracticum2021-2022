@@ -8,7 +8,7 @@ def Calc(s, t, u):
         return eval(t)
 
     def c(x, y):
-        return eval(u)
+        return eval(u, {**locals(), **globals()})
     
     return lambda x: c(a(x), b(x))
 

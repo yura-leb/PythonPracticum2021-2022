@@ -15,5 +15,5 @@ while (s := input().split())[0] != 'quit':
     else:
         print("Wrong str")
 
-print(eval(s[1].format(len(functions) + 1, k+1)))
+print(s[1].format(len(functions) + 1, k+1))
 
