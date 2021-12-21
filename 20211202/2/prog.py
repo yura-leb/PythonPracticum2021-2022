@@ -2,6 +2,8 @@ class check(type):
 
     def __new__(cls, name, parents, ns):
         def check_annotations(self):
+            if not hasattr(self, '__annotations__'):
+                return True
             try:
                 for name, value in self.__annotations__.items():
                         if not isinstance(getattr(self, name), value):
