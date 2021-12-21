@@ -1,2 +1,2 @@
 a = eval(input())
-print([max(a)])
+print(max(a))
