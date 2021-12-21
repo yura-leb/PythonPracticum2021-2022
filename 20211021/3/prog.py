@@ -1,18 +1,16 @@
-from collections import Counter
+from collections import defaultdict
 import re
 
 w = int(input())
 l = list()
 word = ''
-c = Counter()
+c = defaultdict(int)
 while True:
-    s = input()
+    s = input() + ' '
     if s.split() == []:
         break
     
-    s = s.lower();
-##    l += re.split(r"[\W\d]", s)
-    
+    s = s.lower()
     for char in s:
         if char.isalpha():
             word += char
@@ -20,8 +18,6 @@ while True:
             if word and len(word) == w:
                 c[word] += 1
             word = ''
-    
-
 if c:
     maximum = max(c.values())
     print(*sorted([x for x in c if c[x] == maximum]))

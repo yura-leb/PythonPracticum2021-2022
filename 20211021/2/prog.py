@@ -14,6 +14,6 @@ while (s := input().split())[0] != 'quit':
         print(eval(functions[s[0]][0], math.__dict__, d))
     else:
         print("Wrong str")
-string = s[1].strip('"')
+string = s[1].strip('"').strip("'")
 print(string.format(len(functions) + 1, k+1))
 
