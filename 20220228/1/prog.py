@@ -15,4 +15,8 @@ s2 = input().strip('\n')
 s3 = input().strip('\n')
 with mp.Pool(processes=1) as pool:
     proc = pool.apply_async(dist, (s1, s2, s3))
-    print(proc.get())
+    try:
+        print(proc.get(timeout=1))
+    except mp.context.TimeoutError as e:
+        print(-1)
+
