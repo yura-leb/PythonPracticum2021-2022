@@ -117,7 +117,7 @@ class repl(cmd.Cmd):
                 output = 'encountered: '
                 for monster in monsters:
                     output += f'{monster.name} {monster.hp} hp, '
-                print(output[:-2] + '\n')
+                print(output[:-2])
 
 
     def do_attack(self, arg):
