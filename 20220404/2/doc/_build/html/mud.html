@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MUD documentation &#8212; MUD 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to MUD’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-MUD.logic">
+<span id="mud-documentation"></span><h1>MUD documentation<a class="headerlink" href="#module-MUD.logic" title="Permalink to this headline">¶</a></h1>
+<p>Contains logic for MUD game.</p>
+<dl class="class">
+<dt id="MUD.logic.Monster">
+<em class="property">class </em><code class="descclassname">MUD.logic.</code><code class="descname">Monster</code><span class="sig-paren">(</span><em>name</em>, <em>hp</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Monster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monster in coordinates x, y named ‘name’, with hp.</p>
+<dl class="method">
+<dt id="MUD.logic.Monster.decrease_hp">
+<code class="descname">decrease_hp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Monster.decrease_hp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hurt monster.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MUD.logic.Player">
+<em class="property">class </em><code class="descclassname">MUD.logic.</code><code class="descname">Player</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Player which can move.</p>
+<dl class="method">
+<dt id="MUD.logic.Player.down">
+<code class="descname">down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move down.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.logic.Player.left">
+<code class="descname">left</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move left.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.logic.Player.print_move_error">
+<code class="descname">print_move_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.print_move_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print move error.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.logic.Player.print_player">
+<code class="descname">print_player</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.print_player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print players coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.logic.Player.right">
+<code class="descname">right</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move right.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.logic.Player.up">
+<code class="descname">up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.Player.up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move up.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="MUD.logic.completion_list">
+<code class="descclassname">MUD.logic.</code><code class="descname">completion_list</code><span class="sig-paren">(</span><em>prefix</em>, <em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.logic.completion_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create list to complete line.</p>
+</dd></dl>
+
+<span class="target" id="module-MUD.game"></span><p>Module to run MUD cmd.</p>
+<dl class="class">
+<dt id="MUD.game.repl">
+<em class="property">class </em><code class="descclassname">MUD.game.</code><code class="descname">repl</code><a class="headerlink" href="#MUD.game.repl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to run cmd.</p>
+<dl class="method">
+<dt id="MUD.game.repl.complete_add">
+<code class="descname">complete_add</code><span class="sig-paren">(</span><em>prefix</em>, <em>allcommand</em>, <em>beg</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.complete_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compete cmd add.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.complete_attack">
+<code class="descname">complete_attack</code><span class="sig-paren">(</span><em>prefix</em>, <em>allcommand</em>, <em>beg</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.complete_attack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complete cmd attack.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.complete_move">
+<code class="descname">complete_move</code><span class="sig-paren">(</span><em>prefix</em>, <em>allcommand</em>, <em>beg</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.complete_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complete cmd move.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.complete_show">
+<code class="descname">complete_show</code><span class="sig-paren">(</span><em>prefix</em>, <em>allcommand</em>, <em>beg</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.complete_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complete cmd show.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.do_add">
+<code class="descname">do_add</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.do_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add monster with name and hp in coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.do_attack">
+<code class="descname">do_attack</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.do_attack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attack monster with ‘name’.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.do_exit">
+<code class="descname">do_exit</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.do_exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit command line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.do_move">
+<code class="descname">do_move</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.do_move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move up, down, left or right.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.do_show">
+<code class="descname">do_show</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.do_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show all monsters in dungeon.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MUD.game.repl.print_monsters">
+<code class="descname">print_monsters</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#MUD.game.repl.print_monsters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all monsters in cell.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MUD</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MUD documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to MUD’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, yura-leb.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/mud.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

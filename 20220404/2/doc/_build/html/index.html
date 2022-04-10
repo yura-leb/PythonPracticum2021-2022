@@ -1,0 +1,168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to MUD’s documentation! &#8212; MUD 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MUD documentation" href="mud.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-mud-s-documentation">
+<h1>Welcome to MUD’s documentation!<a class="headerlink" href="#welcome-to-mud-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mud.html">MUD documentation</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first">имеется поле 10х10 клеток (по каждой оси нумерация с 0 по 9)</p>
+</li>
+<li><p class="first">в каждой клетке может находиться 0 или более монстров, у каждого монстра есть имя и число очков здоровья (hp - hit points)</p>
+</li>
+<li><p class="first">по полю ходит игрок; попав на клетку с монстром, он может его атаковать, нанося урон (списывая очки здоровья)</p>
+</li>
+<li><p class="first">в начале игры игрок появляется в случайной клетке (0, 0)</p>
+</li>
+<li><p class="first">клетка с координатами (0, 0) находится в левом верхнем углу поля</p>
+</li>
+<li><p class="first">настройка поля и игровой процесс организованы при помощи командной строки (readline/shlex/cmd):</p>
+</li>
+<li><p class="first"><cite>add monster name &lt;имя монстра&gt; hp &lt;число очков здоровья&gt; coords &lt;X&gt; &lt;Y&gt;</cite></p>
+<ul class="simple">
+<li>добавить в клетку с заданными координатами монстра с заданным именем и числом очков здоровья</li>
+<li>если в этой клетке уже есть монстр с таким именем, его число очков здоровья меняется на новое</li>
+<li>пример: <cite>add monster name Gnoll hp 23 coords 5 7</cite></li>
+</ul>
+</li>
+<li><p class="first"><cite>show monsters</cite></p>
+<ul class="simple">
+<li>вывести про каждого монстра на отдельной строке информацию: его имя, координаты, число очков здоровья</li>
+<li>пример: <cite>War Troll at (4 2) hp 100</cite></li>
+</ul>
+</li>
+<li><p class="first"><cite>move &lt;направление&gt;</cite></p>
+<ul class="simple">
+<li>подвинуть игрока на одну клетку в заданном направлении (варианты: <cite>up</cite>, <cite>down</cite>, <cite>left</cite>, <cite>right</cite>), если это возможно с учетом границ поля; <cite>up</cite>, <cite>down</cite> - смещение по оси Y; <cite>left</cite>, <cite>right</cite> - по оси X</li>
+<li>пример: <cite>move up</cite></li>
+<li>после подвижки (т.е. успешного изменения позиции) вывести информацию о новой позиции, например: <cite>player at 6 9</cite>; если подвижка невозможна, вывести: <cite>cannot move</cite></li>
+<li>если после подвижки игрок попал на клетку с монстром, вывести информацию о монстре (монстрах) в этой клетке, например: <cite>encountered: War Troll 57 hp, Lizardman 13 hp</cite></li>
+</ul>
+</li>
+<li><p class="first"><cite>attack &lt;имя монстра&gt;</cite></p>
+<ul>
+<li><p class="first">атаковать монстра с заданным именем, находящегося в той же клетке, где игрок</p>
+</li>
+<li><p class="first">атака списывает у монстра 10 очков здоровья; по результатам выводится сообщение:</p>
+<blockquote>
+<div><ul class="simple">
+<li>если у монстра осталось положительное число очков здоровья: <cite>&lt;имя монстра&gt; lost 10 hp, now has &lt;число&gt; hp</cite></li>
+<li>если у монстра осталось 0 или менее очков здоровья (традиция допускает “уход в минус”), то: <cite>&lt;имя монстра&gt; dies</cite></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">монстр, у которого в результате атаки осталось 0 или менее очков здоровья, исчезает</p>
+</li>
+<li><p class="first">если монстра с заданными именем нет в клетке с игроком, выводится сообщение: <cite>no &lt;имя монстра&gt; here</cite></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">MUD</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mud.html">MUD documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="mud.html" title="next chapter">MUD documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, yura-leb.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
