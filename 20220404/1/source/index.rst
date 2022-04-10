@@ -10,13 +10,11 @@ Welcome to test's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: dummy
-   :members:
-   :special-members:
 
 Суть проекта:
 ========================================================
 Игра на PyGame по мотивам Zelda в пиксельной стилизации
+
 Ссылка на репозиторий:
 =========================================================
 https://github.com/CocoDiorr/PythonGameDevelopment2022
@@ -29,6 +27,7 @@ https://github.com/CocoDiorr/PythonGameDevelopment2022
     #. Лебединский Юрий, yura-leb
     #. Зайдуллин Ризван, RZaidullin
 
+.. image:: _static/screen.png
 
 Indices and tables
 ==================

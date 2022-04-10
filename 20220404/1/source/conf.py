@@ -23,6 +23,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'test'
 copyright = '2022, test'
 author = 'test'
+master_doc = 'index'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
