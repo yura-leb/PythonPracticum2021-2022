@@ -1,28 +1,43 @@
-DOIT_CONFIG = {'default_tasks': ['icon']}
+DOIT_CONFIG = {'default_tasks': ['babel', 'test', 'wheel', 'sdist', 'cleanup']}
 
-
-def task_diagram():
-    """Convert dot diagram to png."""
+def task_babel():
+    """Make translation po file."""
     return {
-            "actions": ["dot -Tpng diagram.dot -o diagram.png"],
-            "file_dep": ["diagram.dot"],
-            "targets": ["diagram.png"]
+            "actions": [
+                "pybabel extract -o po/prog.pot prog.py",
+                "pybabel update -D prog -i po/prog.pot -d po -l ru",
+                "pybabel compile -D prog -d po -l ru"
+            ],
+            "file_dep": ["prog.py"],
+            "targets": ["po/prog.pot", "po/ru/LC_MESSAGES/prog.mo"]
            }
 
-
-def task_icon():
-    """Create an icon."""
-    iname = "prog/icon.png"
+def task_wheel():
+    """Create wheel."""
     return {
-            "actions": [f"convert diagram.png -crop 200x200+100+100 -resize 64x64 {iname}"],
-            "file_dep": ["diagram.png"],
-            "targets": [f"{iname}"]
+            "actions": ['python -m build -w'],
+            "file_dep": ["prog.py", "po/ru/LC_MESSAGES/prog.mo"],
+    }
+
+def task_sdist():
+    """Create tar."""
+    return {
+            "actions": ['python -m build -s'],
+            "file_dep": ["prog.py", "po/ru/LC_MESSAGES/prog.mo"],
+    }
+
+
+def task_test():
+    """Test prog.py."""
+    return {
+        "actions": ["python3 -m unittest -v"],
+        #"file_dep": ["test_prog.py"]
     }
 
 
 def task_cleanup():
     """Remove all."""
     return {
-            "actions": ["rm -f prog/*png"],
-    }
+            "actions": ["rm -f po/prog.pot", "rm -f po/ru/LC_MESSAGES/prog.mo"],
+   }
 
