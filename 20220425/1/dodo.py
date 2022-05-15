@@ -15,14 +15,14 @@ def task_babel():
 def task_wheel():
     """Create wheel."""
     return {
-            "actions": ['python -m build -w'],
+            "actions": ['python3 -m build -w'],
             "file_dep": ["prog.py", "po/ru/LC_MESSAGES/prog.mo"],
     }
 
 def task_sdist():
     """Create tar."""
     return {
-            "actions": ['python -m build -s'],
+            "actions": ['python3 -m build -s'],
             "file_dep": ["prog.py", "po/ru/LC_MESSAGES/prog.mo"],
     }
 
