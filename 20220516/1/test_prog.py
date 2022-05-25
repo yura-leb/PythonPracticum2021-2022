@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from prog import solve
+from prog.__main__ import solve
 
 
 class TestSolver(unittest.TestCase):

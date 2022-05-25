@@ -1,0 +1,2 @@
+recursive-include po *.po
+include test_prog.py
